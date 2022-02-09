@@ -1,0 +1,88 @@
+/* font-family: 'Roboto', sans-serif; */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #E5E5E5;
+}
+
+/*-- Topo --*/
+header {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+header img {
+    width: 75px;
+}
+
+header ion-icon {
+    font-size: 42px;
+}
+
+/*-- Mensagens --*/
+main {
+    margin-top: 110px;
+}
+
+main .caixa-mensagem {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #FFFFFF;
+    padding: 8px 0px;
+    border-radius: 2px;
+    margin-bottom: 4px;
+}
+
+main .caixa-mensagem p {
+    margin-left: 8px;
+}
+
+b {
+   font-weight: 700; 
+}
+
+.caixa-mensagem.notificação {
+    background-color: #DCDCDC;
+}
+
+.caixa-mensagem.privada {
+    background-color:#FFDEDE ;
+}
+
+.caixa-mensagem .horario {
+    color: #AAAAAA;;
+}
+
+/*-- Rodapé --*/
+footer {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 17px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer p {
+    font-size: 18px;
+    font-style: italic;
+}
+
+footer ion-icon {
+    font-size: 26px;
+}
