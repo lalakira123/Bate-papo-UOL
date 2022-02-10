@@ -32,6 +32,7 @@ header ion-icon {
 /*-- Mensagens --*/
 main {
     margin-top: 110px;
+    margin-bottom: 80px;
 }
 
 main .caixa-mensagem {
@@ -39,7 +40,6 @@ main .caixa-mensagem {
     align-items: center;
     font-size: 14px;
     font-weight: 400;
-    background-color: #FFFFFF;
     padding: 8px 0px;
     border-radius: 2px;
     margin-bottom: 4px;
@@ -53,11 +53,15 @@ b {
    font-weight: 700; 
 }
 
-.caixa-mensagem.notificação {
+.caixa-mensagem.message {
+    background-color: #FFFFFF;
+}
+
+.caixa-mensagem.status {
     background-color: #DCDCDC;
 }
 
-.caixa-mensagem.privada {
+.caixa-mensagem.private_message {
     background-color:#FFDEDE ;
 }
 
