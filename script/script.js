@@ -6,7 +6,7 @@ let nomeUsuario = ""
 function requisitarMensagem() {
     const promessa = axios.get("https://mock-api.driven.com.br/api/v4/uol/messages")
     promessa.then(promessaMensagens)
-    promessa.catch()
+    promessa.catch() //Pensar no que colocar aqui
 }
 
 requisitarMensagem()
@@ -59,3 +59,38 @@ function mostrarUltimoElemento() {
     elementoApareça.children[99].scrollIntoView()
 }
 
+//-- Entrada de Usuário na Sala --//
+function perguntarNomeUsuario() {
+    nomeUsuario = prompt("Qual o seu nome de Usuário?")
+    requisitarNomeUsuario()
+}
+
+function requisitarNomeUsuario() {
+    const objetoUsuario = {
+        name: nomeUsuario
+    } 
+    const requisicao = axios.post("https://mock-api.driven.com.br/api/v4/uol/participants", objetoUsuario) 
+    requisicao.catch(falhaEscolherNome)
+}
+
+function falhaEscolherNome(erro) {
+    perguntarNomeUsuario()
+}
+
+perguntarNomeUsuario()
+
+//-- Manter Conexão na Sala --//
+
+function requisitarConexao() {
+    const objetoUsuario = {
+        name: nomeUsuario
+    }
+    const requisicao = axios.post("https://mock-api.driven.com.br/api/v4/uol/status", objetoUsuario)
+    requisicao.then(manterConexao)
+}
+
+function manterConexao() {
+    setInterval(requisitarConexao,5000)
+}
+
+requisitarConexao()

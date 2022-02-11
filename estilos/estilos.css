@@ -31,7 +31,7 @@ header ion-icon {
 
 /*-- Mensagens --*/
 main {
-    margin-top: 110px;
+    margin-top: 90px;
     margin-bottom: 80px;
 }
 
@@ -40,13 +40,15 @@ main .caixa-mensagem {
     align-items: center;
     font-size: 14px;
     font-weight: 400;
-    padding: 8px 0px;
+    padding: 8px 4px 8px 0px;
     border-radius: 2px;
     margin-bottom: 4px;
+    word-break: break-word;
 }
 
 main .caixa-mensagem p {
     margin-left: 8px;
+    margin-bottom: 2px;
 }
 
 b {
