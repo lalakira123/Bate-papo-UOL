@@ -6,7 +6,6 @@ let nomeUsuario = ""
 function requisitarMensagem() {
     const promessa = axios.get("https://mock-api.driven.com.br/api/v4/uol/messages")
     promessa.then(promessaMensagens)
-    promessa.catch() //Pensar no que colocar aqui
 }
 
 requisitarMensagem()
@@ -30,7 +29,7 @@ function renderizarMensagens() {
             tipoDaMensagem = " "
         }
         telaMensagens.innerHTML += `
-        <div class="caixa-mensagem ${mensagens[i].type}">
+        <div class="caixa-mensagem ${mensagens[i].type}" data-identifier="message">
                 <p>
                     <span class="horario">${mensagens[i].time}</span>
                     <span><b>${mensagens[i].from}</b></span>
@@ -73,20 +72,20 @@ function requisitarNomeUsuario() {
     requisicao.catch(falhaEscolherNome)
 }
 
-function falhaEscolherNome(erro) {
+function falhaEscolherNome() {
     perguntarNomeUsuario()
 }
 
 perguntarNomeUsuario()
 
 //-- Manter Conexão na Sala --//
-
 function requisitarConexao() {
     const objetoUsuario = {
         name: nomeUsuario
     }
     const requisicao = axios.post("https://mock-api.driven.com.br/api/v4/uol/status", objetoUsuario)
     requisicao.then(manterConexao)
+    requisicao.catch(atualizarPagina)
 }
 
 function manterConexao() {
@@ -94,3 +93,20 @@ function manterConexao() {
 }
 
 requisitarConexao()
+
+//-- Envio de Mensagem --//
+function requisitarEnvioMensagem() {
+    const dadosMensagem = {
+        from: nomeUsuario,
+        to: "Todos",
+        text: document.querySelector("input").value,
+        type: "message"
+    } 
+    const requisicao = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages",dadosMensagem) 
+    requisicao.then(requisitarMensagem)
+    requisicao.catch(atualizarPagina)
+}
+
+function atualizarPagina() {
+    window.location.reload()
+}

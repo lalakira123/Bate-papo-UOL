@@ -84,9 +84,16 @@ footer {
     width: 100%;
 }
 
-footer p {
+footer input {
     font-size: 18px;
     font-style: italic;
+    border: none;
+    width: 600px;
+}
+
+footer button {
+    border: none;
+    background-color: #FFFFFF;
 }
 
 footer ion-icon {
